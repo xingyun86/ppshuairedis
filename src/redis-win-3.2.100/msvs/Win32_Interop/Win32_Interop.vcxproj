@@ -75,32 +75,32 @@
     <ClInclude Include="..\..\src\Win32_Interop\WS2tcpip.h" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\src\Win32_Interop\EventLog.mc">
+    <CustomBuild Include="$(SolutionDir)..\src\Win32_Interop\EventLog.mc">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">md ..\..\src\Win32_Interop\resources
-mc.exe -A -b -c -h . -r ../../src/Win32_Interop/resources ../../src/Win32_Interop/EventLog.mc
-rc.exe -fo../../src/Win32_Interop/resources/EventLog.res ../../src/Win32_Interop/resources/EventLog.rc
-link.exe -dll -noentry ../../src/Win32_Interop/resources/EventLog.res -out:$(TargetDir)EventLog.dll
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">md $(SolutionDir)..\src\Win32_Interop\resources
+mc.exe -A -b -c -h . -r $(SolutionDir)../src/Win32_Interop/resources $(SolutionDir)../src/Win32_Interop/EventLog.mc
+rc.exe -fo$(SolutionDir)../src/Win32_Interop/resources/EventLog.res $(SolutionDir)../src/Win32_Interop/resources/EventLog.rc
+link.exe -dll -noentry $(SolutionDir)../src/Win32_Interop/resources/EventLog.res -out:$(TargetDir)EventLog.dll
 </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">md ..\..\src\Win32_Interop\resources
-mc.exe -A -b -c -h . -r ../../src/Win32_Interop/resources ../../src/Win32_Interop/EventLog.mc
-rc.exe -fo../../src/Win32_Interop/resources/EventLog.res ../../src/Win32_Interop/resources/EventLog.rc
-link.exe -dll -noentry ../../src/Win32_Interop/resources/EventLog.res -out:$(TargetDir)EventLog.dll
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">md $(SolutionDir)..\src\Win32_Interop\resources
+mc.exe -A -b -c -h . -r $(SolutionDir)../src/Win32_Interop/resources $(SolutionDir)../src/Win32_Interop/EventLog.mc
+rc.exe -fo$(SolutionDir)../src/Win32_Interop/resources/EventLog.res $(SolutionDir)../src/Win32_Interop/resources/EventLog.rc
+link.exe -dll -noentry $(SolutionDir)../src/Win32_Interop/resources/EventLog.res -out:$(TargetDir)EventLog.dll
 </Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../../src/Win32_Interop/EventLog.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../../src/Win32_Interop/EventLog.h</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">md ..\..\src\Win32_Interop\resources
-mc.exe -A -b -c -h . -r ../../src/Win32_Interop/resources ../../src/Win32_Interop/EventLog.mc
-rc.exe -fo../../src/Win32_Interop/resources/EventLog.res ../../src/Win32_Interop/resources/EventLog.rc
-link.exe -dll -noentry ../../src/Win32_Interop/resources/EventLog.res -out:$(TargetDir)EventLog.dll
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)../src/Win32_Interop/EventLog.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)../src/Win32_Interop/EventLog.h</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">md $(SolutionDir)..\src\Win32_Interop\resources
+mc.exe -A -b -c -h . -r $(SolutionDir)../src/Win32_Interop/resources $(SolutionDir)../src/Win32_Interop/EventLog.mc
+rc.exe -fo../../src/Win32_Interop/resources/EventLog.res $(SolutionDir)../src/Win32_Interop/resources/EventLog.rc
+link.exe -dll -noentry $(SolutionDir)../src/Win32_Interop/resources/EventLog.res -out:$(TargetDir)EventLog.dll
 </Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">md ..\..\src\Win32_Interop\resources
-mc.exe -A -b -c -h . -r ../../src/Win32_Interop/resources ../../src/Win32_Interop/EventLog.mc
-rc.exe -fo../../src/Win32_Interop/resources/EventLog.res ../../src/Win32_Interop/resources/EventLog.rc
-link.exe -dll -noentry ../../src/Win32_Interop/resources/EventLog.res -out:$(TargetDir)EventLog.dll
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">md $(SolutionDir)..\src\Win32_Interop\resources
+mc.exe -A -b -c -h . -r $(SolutionDir)../src/Win32_Interop/resources $(SolutionDir)../src/Win32_Interop/EventLog.mc
+rc.exe -fo$(SolutionDir)../src/Win32_Interop/resources/EventLog.res $(SolutionDir)../src/Win32_Interop/resources/EventLog.rc
+link.exe -dll -noentry $(SolutionDir)../src/Win32_Interop/resources/EventLog.res -out:$(TargetDir)EventLog.dll
 </Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../../src/Win32_Interop/EventLog.h</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../../src/Win32_Interop/EventLog.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)../src/Win32_Interop/EventLog.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)../src/Win32_Interop/EventLog.h</Outputs>
     </CustomBuild>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -167,8 +167,8 @@ link.exe -dll -noentry ../../src/Win32_Interop/resources/EventLog.res -out:$(Tar
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>USE_STATIC;USE_JEMALLOC;_OFF_T_DEFINED;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);LACKS_STDLIB_H;_CRT_SECURE_NO_WARNINGS;PSAPI_VERSION=1</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\deps\lua\src;$(ProjectDir)..\..\deps\jemalloc-win\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>USE_STATIC;USE_JEMALLOC;_OFF_T_DEFINED;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);LACKS_STDLIB_H;_CRT_SECURE_NO_WARNINGS;PSAPI_VERSION=1;_WIN32_WINNT=0x0502</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\deps\lua\src;$(ProjectDir)..\..\deps\jemalloc-win\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
@@ -189,7 +189,7 @@ link.exe -dll -noentry ../../src/Win32_Interop/resources/EventLog.res -out:$(Tar
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>USE_STATIC;USE_JEMALLOC;_OFF_T_DEFINED;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);LACKS_STDLIB_H;_CRT_SECURE_NO_WARNINGS;PSAPI_VERSION=1;_WIN32_WINNT=0x0501</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\deps\lua\src;$(ProjectDir)..\..\deps\jemalloc-win\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\deps\lua\src;$(ProjectDir)..\..\deps\jemalloc-win\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
@@ -214,8 +214,8 @@ link.exe -dll -noentry ../../src/Win32_Interop/resources/EventLog.res -out:$(Tar
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>USE_STATIC;USE_JEMALLOC;_OFF_T_DEFINED;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);LACKS_STDLIB_H;_CRT_SECURE_NO_WARNINGS;PSAPI_VERSION=1</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\deps\lua\src;$(ProjectDir)..\..\deps\jemalloc-win\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>USE_STATIC;USE_JEMALLOC;_OFF_T_DEFINED;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);LACKS_STDLIB_H;_CRT_SECURE_NO_WARNINGS;PSAPI_VERSION=1;_WIN32_WINNT=0x0502</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\deps\lua\src;$(ProjectDir)..\..\deps\jemalloc-win\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
@@ -240,7 +240,7 @@ link.exe -dll -noentry ../../src/Win32_Interop/resources/EventLog.res -out:$(Tar
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>USE_STATIC;USE_JEMALLOC;_OFF_T_DEFINED;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);LACKS_STDLIB_H;_CRT_SECURE_NO_WARNINGS;PSAPI_VERSION=1;_WIN32_WINNT=0x0501</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\deps\lua\src;$(ProjectDir)..\..\deps\jemalloc-win\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\deps\lua\src;$(ProjectDir)..\..\deps\jemalloc-win\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>

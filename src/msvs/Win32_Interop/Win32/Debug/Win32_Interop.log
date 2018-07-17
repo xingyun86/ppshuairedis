@@ -1,0 +1,13 @@
+﻿  Performing Custom Build Tools
+mc : error : 0x2 trying to open file <../../src/Win32_Interop/EventLog.mc>.
+  Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+  
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  
+CUSTOMBUILD : fatal error RC1110: could not open ../../src/Win32_Interop/resources/EventLog.rc
+  
+  Microsoft (R) Incremental Linker Version 14.00.24215.1
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+LINK : fatal error LNK1181: cannot open input file '../../src/Win32_Interop/resources/EventLog.res'
